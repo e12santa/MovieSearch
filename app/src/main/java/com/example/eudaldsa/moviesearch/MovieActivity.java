@@ -2,9 +2,11 @@ package com.example.eudaldsa.moviesearch;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -26,6 +28,7 @@ public class MovieActivity extends AppCompatActivity {
     private TextView directorview;
     private TextView writerview;
     private TextView actorsview;
+    private ImageView posterview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,5 +64,8 @@ public class MovieActivity extends AppCompatActivity {
         directorview.setText(movie.getDirector());
         writerview.setText(movie.getWriter());
         actorsview.setText(movie.getActors().replace(", ", "\n"));
+
+        posterview = findViewById(R.id.posterview);
+        Glide.with(this).load("file:///android_asset/poster.png").into(posterview);
     }
 }
